@@ -3,7 +3,7 @@ import { Zap, FileEdit, MessageCircle } from "lucide-react";
 
 const HowItWorks = () => {
   return (
-    <div className="max-w-7xl py-30 mx-auto">
+    <div className="max-w-7xl py-20 mx-auto">
       <div className="py-16 lg:py-24">
         {/* Header Section */}
         <div className="mb-20">

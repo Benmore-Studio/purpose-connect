@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function AboutLandingSection() {
   return (
-    <section className="bg-gray-50 pt-40 pb-30">
+    <section className="bg-gray-50 pt-20 pb-20">
       <div className="max-w-7xl mx-auto px-4">
         {/* Text Content - Left Side */}
         <div className="max-w-2xl mb-16">

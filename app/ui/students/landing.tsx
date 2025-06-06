@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Landing = () => {
   return (
-    <div className="bg-white flex items-center justify-center p-4 py-40">
+    <div className="bg-white flex items-center justify-center p-4 py-20">
       <div className="max-w-7xl w-full grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
         {/* Left Content */}
         <div className="space-y-12">
@@ -32,7 +32,7 @@ const Landing = () => {
 
         {/* Right Content - Image with Overlay */}
         <div className="relative">
-          <div className="relative shadow-2xl w-full h-[500px] lg:h-[800px]" style={{ borderTopLeftRadius: '200px' }}>
+          <div className="relative shadow-2xl w-full h-[500px] lg:h-[650px]" style={{ borderTopLeftRadius: '200px' }}>
             <Image
               src="/student-landing-1.jpg"
               alt="Two women having a professional conversation in a modern office setting"
