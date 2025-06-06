@@ -3,11 +3,17 @@ import Image from "next/image";
 
 export default function AboutLandingSection() {
   return (
-    <section className="bg-gray-50 pt-20 pb-20">
+    <section className="bg-gray-50 pt-20 pb-20 relative">
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-1/3 aspect-square bg-[#069DDE] rounded-full filter blur-3xl opacity-25"></div>
+        <div className="absolute top-10 right-8 w-1/3 aspect-square bg-[#FF76591A] rounded-full filter blur-3xl opacity-25"></div>
+        <div className="absolute top-100 left-20 w-1/3 aspect-square bg-[#EFD329] rounded-full filter blur-3xl opacity-25"></div>
+        <div className="absolute top-150 right-30 w-1/3 aspect-square bg-[#A0C366] rounded-full filter blur-3xl opacity-25"></div>
+      </div>
       <div className="max-w-7xl mx-auto px-4">
         {/* Text Content - Left Side */}
         <div className="max-w-2xl mb-16">
-          <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 leading-tight mb-8">
+          <h1 className="text-5xl font-bold text-gray-900 leading-tight mb-8">
             Building Bridges to <span className="block">Brighter Futures</span>
           </h1>
 

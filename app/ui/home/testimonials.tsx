@@ -79,7 +79,7 @@ export default function TestimonialsSection() {
                 prev < testimonials.length - 1 ? prev + 1 : 0
               )
             }
-            className="w-12 h-12 border border-orange-500 rounded-full flex items-center justify-center hover:border-orange-400 transition-colors"
+            className="w-12 h-12 border border-gray-600 rounded-full flex items-center justify-center hover:border-orange-400 transition-colors"
           >
             <svg
               className="w-5 h-5"

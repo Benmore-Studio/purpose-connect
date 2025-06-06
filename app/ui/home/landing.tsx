@@ -57,25 +57,6 @@ const ServiceWalkthrough = () => {
           See our platform in action - from job search to interview prep to visa sponsorship
         </p>
         
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-          <div className="flex items-center text-gray-700">
-            <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
-              <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-              </svg>
-            </div>
-            <span className="font-medium">2-minute overview</span>
-          </div>
-          <div className="flex items-center text-gray-700">
-            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-              <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <span className="font-medium">Real success stories</span>
-          </div>
-        </div>
-        
         <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
           <button className="border-2 border-cyan-500 text-cyan-500 hover:bg-cyan-50 px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105">
             Search Jobs
@@ -97,10 +78,10 @@ const HeroSection = () => {
     <div className="min-h-screen bg-gray-100 relative overflow-hidden">
       {/* Blurred Background Circles */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-[650px] h-[650px] bg-[#069DDE] rounded-full filter blur-3xl opacity-25"></div>
-        <div className="absolute top-35 right-8 w-[650px] h-[650px] bg-[#5DAFA1] rounded-full filter blur-3xl opacity-25"></div>
-        <div className="absolute top-100 left-20 w-[650px] h-[650px] bg-[#EFD329] rounded-full filter blur-3xl opacity-25"></div>
-        <div className="absolute top-150 right-30 w-[650px] h-[650px]  bg-[#A0C366] rounded-full filter blur-3xl opacity-25"></div>
+        <div className="absolute top-20 left-10 w-1/3 aspect-square bg-[#069DDE] rounded-full filter blur-3xl opacity-25"></div>
+        <div className="absolute top-10 right-8 w-1/3 aspect-square bg-[#FF76591A] rounded-full filter blur-3xl opacity-25"></div>
+        <div className="absolute top-100 left-20 w-1/3 aspect-square bg-[#EFD329] rounded-full filter blur-3xl opacity-25"></div>
+        <div className="absolute top-150 right-30 w-1/3 aspect-square bg-[#A0C366] rounded-full filter blur-3xl opacity-25"></div>
       </div>
 
       {/* Hero Content */}
