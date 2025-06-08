@@ -53,50 +53,62 @@ export default function PurposeConnectFAQ() {
     ];
 
     return (
-        <div className="max-w-4xl mx-auto p-6 bg-white pt-30">
-            <div className="text-center mb-12">
-                <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                    Frequently asked questions
-                </h1>
-                <p className="text-lg text-gray-600">
-                    Everything you need to know about the Purpose Connect.
-                </p>
-            </div>
+        <section className="bg-white pt-30">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Header */}
+                <div className="text-center mb-8 sm:mb-10 md:mb-12">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
+                        Frequently asked questions
+                    </h1>
+                    <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                        Everything you need to know about Purpose Connect.
+                    </p>
+                </div>
 
-            <div className="space-y-0 border-b border-gray-200">
-                {faqData.map((item: FAQItem, index: number) => (
-                    <div key={index} className="border-t border-gray-200">
-                        <button
-                            onClick={() => toggleItem(index)}
-                            className={`rounded-lg w-full px-6 py-6 text-left flex items-center justify-between ${openItems[index] ? 'bg-gray-50' : ''
+                {/* FAQ Items */}
+                <div className="space-y-0 border-b border-gray-200 rounded-lg sm:rounded-xl overflow-hidden bg-white shadow-sm">
+                    {faqData.map((item: FAQItem, index: number) => (
+                        <div key={index} className="border-t border-gray-200 first:border-t-0">
+                            <button
+                                onClick={() => toggleItem(index)}
+                                className={`w-full px-4 sm:px-6 py-4 sm:py-5 md:py-6 text-left flex items-center justify-between transition-colors duration-200 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset ${
+                                    openItems[index] ? 'bg-gray-50' : 'bg-white'
                                 }`}
-                        >
-                            <div className="flex items-center">
-                                <div className="mr-4 flex-shrink-0">
-                                    <div className="w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center">
-                                        {openItems[index] ? (
-                                            <Minus className="w-4 h-4 text-gray-600" />
-                                        ) : (
-                                            <Plus className="w-4 h-4 text-gray-600" />
-                                        )}
+                                aria-expanded={openItems[index]}
+                                aria-controls={`faq-answer-${index}`}
+                            >
+                                <div className="flex items-start sm:items-center flex-1 min-w-0">
+                                    <div className="mr-3 sm:mr-4 flex-shrink-0 mt-1 sm:mt-0">
+                                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-gray-300 flex items-center justify-center transition-colors duration-200">
+                                            {openItems[index] ? (
+                                                <Minus className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
+                                            ) : (
+                                                <Plus className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
+                                            )}
+                                        </div>
+                                    </div>
+                                    <span className="text-base sm:text-lg md:text-xl font-medium text-gray-900 leading-relaxed pr-2">
+                                        {item.question}
+                                    </span>
+                                </div>
+                            </button>
+
+                            {openItems[index] && (
+                                <div 
+                                    id={`faq-answer-${index}`}
+                                    className="bg-gray-50 px-4 sm:px-6 py-4 sm:py-5 border-t border-gray-100"
+                                >
+                                    <div className="ml-8 sm:ml-10">
+                                        <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
+                                            {item.expanded}
+                                        </p>
                                     </div>
                                 </div>
-                                <span className="text-lg font-medium text-gray-900">
-                                    {item.question}
-                                </span>
-                            </div>
-                        </button>
-
-                        {openItems[index] && (
-                            <div className="bg-gray-50 px-6 py-2">
-                                <p className="text-gray-700 leading-relaxed">
-                                    {item.expanded}
-                                </p>
-                            </div>
-                        )}
-                    </div>
-                ))}
+                            )}
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
+        </section>
     );
 }

@@ -59,7 +59,7 @@ export default function OurTeam() {
     <section className="bg-white py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-16">
+        <div className="mb-16 text-center lg:text-left">
           <p className="text-teal-600 font-medium mb-4">Our team</p>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-2">
             Our strength comes
@@ -85,7 +85,7 @@ export default function OurTeam() {
               </div>
 
               {/* Member Info */}
-              <div className="space-y-2">
+              <div className="space-y-0">
                 <h3 className="text-lg font-bold text-gray-900">
                   {member.name}
                 </h3>

@@ -29,7 +29,7 @@ export default function OurValues() {
     <section className="bg-white py-30 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-16">
+        <div className="mb-16 text-center lg:text-left">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             Our Values
           </h2>
