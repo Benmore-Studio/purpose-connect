@@ -27,7 +27,7 @@ export default function Footer() {
             <div className="mb-4 sm:mb-6">
               <div className="inline-block">
                 <Image
-                  src="/logo.png"
+                  src="/logo.svg"
                   alt="Connect Logo"
                   width={120}
                   height={40}

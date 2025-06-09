@@ -96,7 +96,7 @@ const ServiceWalkthrough = () => {
 
 const HeroSection = () => {
   return (
-    <div className="min-h-screen bg-gray-100 relative overflow-hidden pt-30">
+    <div className="min-h-screen bg-gray-100 relative overflow-hidden py-20 lg:pt-30">
       {/* Blurred Background Circles - Fully responsive */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Top left circle */}
@@ -122,7 +122,7 @@ const HeroSection = () => {
             </span>
             <span className="block xs:block sm:inline">
               {" "}
-              International <br /> Students'
+              International <br className="hidden lg:block"/> Students'
             </span>
             <span className="block xs:block sm:inline">
               {" "}

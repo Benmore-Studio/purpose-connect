@@ -126,7 +126,7 @@ export default function Header() {
             <div className="flex items-center justify-between px-4 border-b border-gray-200 bg-white">
               <div className="flex items-center space-x-3">
                 <Image
-                  src="/logo.png"
+                  src="/logo.svg"
                   alt="Connect Logo"
                   width={32}
                   height={32}
