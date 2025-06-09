@@ -1,12 +1,38 @@
-import Image from "next/image";
-
 // components/FeaturesSection.tsx
+"use client";
+import Image from "next/image";
+import { motion } from "framer-motion";
+
 export default function FeaturesSection() {
+  const featureVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
   return (
     <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16 md:mb-20">
+        <motion.div 
+          className="text-center mb-12 sm:mb-16 md:mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
             Stay ahead with our<br className="hidden sm:block" />
             <span className="sm:hidden"> </span>powerful features
@@ -14,15 +40,38 @@ export default function FeaturesSection() {
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-xs sm:max-w-2xl md:max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
             Get matched with top employers, build meaningful connections, and thrive in your career—without resumes, barriers, or confusion. Your future starts here.
           </p>
-        </div>
+        </motion.div>
 
         {/* Features Container */}
-        <div className="space-y-12 sm:space-y-16 md:space-y-20 border border-gray-200 p-6 sm:p-8 md:p-12 lg:p-16 xl:p-25 rounded-2xl sm:rounded-3xl">
+        <motion.div 
+          className="space-y-12 sm:space-y-16 md:space-y-20 border border-gray-200 p-6 sm:p-8 md:p-12 lg:p-16 xl:p-25 rounded-2xl sm:rounded-3xl"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           
           {/* Feature 1 - Job Matching */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
-            <div className="order-1">
-              <div className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">01</div>
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={featureVariants}
+          >
+            <motion.div 
+              className="order-1"
+              variants={featureVariants}
+            >
+              <motion.div 
+                className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                01
+              </motion.div>
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                 Job Matching Based on Skills &<br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>Work Authorization
@@ -30,11 +79,20 @@ export default function FeaturesSection() {
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
                 We match you with jobs that fit your skills and visa status—no guesswork, just green lights to work, grow, and shine where you belong.
               </p>
-              <button className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base">
+              <motion.button 
+                className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base"
+                whileHover={{ scale: 1.05, backgroundColor: "rgb(239 246 255)" }}
+                whileTap={{ scale: 0.95 }}
+              >
                 Learn more
-              </button>
-            </div>
-            <div className="relative flex items-center justify-center order-1 lg:order-2">
+              </motion.button>
+            </motion.div>
+            <motion.div 
+              className="relative flex items-center justify-center order-1 lg:order-2"
+              variants={imageVariants}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <div className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[400px]">
                 <Image 
                   src='/features-1.svg' 
@@ -44,13 +102,30 @@ export default function FeaturesSection() {
                   className="w-full h-auto"
                 />
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Feature 2 - Immigration Support */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
-            <div className="order-1 lg:order-2">
-              <div className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">02</div>
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={featureVariants}
+          >
+            <motion.div 
+              className="order-1 lg:order-2"
+              variants={featureVariants}
+            >
+              <motion.div 
+                className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                02
+              </motion.div>
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                 Expert Immigration<br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>Support
@@ -58,11 +133,20 @@ export default function FeaturesSection() {
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
                 Visas are tricky—we make them easier. Our experts guide you through the maze so you can focus on your dreams, not just documents.
               </p>
-              <button className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base">
+              <motion.button 
+                className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base"
+                whileHover={{ scale: 1.05, backgroundColor: "rgb(239 246 255)" }}
+                whileTap={{ scale: 0.95 }}
+              >
                 Learn more
-              </button>
-            </div>
-            <div className="relative flex items-center justify-center order-1">
+              </motion.button>
+            </motion.div>
+            <motion.div 
+              className="relative flex items-center justify-center order-1"
+              variants={imageVariants}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <div className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[400px]">
                 <Image 
                   src='/feature-2.svg' 
@@ -72,13 +156,30 @@ export default function FeaturesSection() {
                   className="w-full h-auto"
                 />
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Feature 3 - Interview Scheduling */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
-            <div className="order-1">
-              <div className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">03</div>
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={featureVariants}
+          >
+            <motion.div 
+              className="order-1"
+              variants={featureVariants}
+            >
+              <motion.div 
+                className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                03
+              </motion.div>
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                 Smart Interview Scheduling &<br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>Communication
@@ -86,11 +187,20 @@ export default function FeaturesSection() {
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
                 No missed emails or confusing time zones. We keep interviews simple, smooth, and synced so you can show up ready and relaxed.
               </p>
-              <button className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base">
+              <motion.button 
+                className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base"
+                whileHover={{ scale: 1.05, backgroundColor: "rgb(239 246 255)" }}
+                whileTap={{ scale: 0.95 }}
+              >
                 Learn more
-              </button>
-            </div>
-            <div className="relative flex items-center justify-center order-1 lg:order-2">
+              </motion.button>
+            </motion.div>
+            <motion.div 
+              className="relative flex items-center justify-center order-1 lg:order-2"
+              variants={imageVariants}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <div className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[400px]">
                 <Image 
                   src='/features-3.svg' 
@@ -100,13 +210,30 @@ export default function FeaturesSection() {
                   className="w-full h-auto"
                 />
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Feature 4 - Immigration Timelines */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
-            <div className="order-1 lg:order-2">
-              <div className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">04</div>
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={featureVariants}
+          >
+            <motion.div 
+              className="order-1 lg:order-2"
+              variants={featureVariants}
+            >
+              <motion.div 
+                className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                04
+              </motion.div>
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                 Interactive Immigration<br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>Timelines & Alerts
@@ -114,11 +241,20 @@ export default function FeaturesSection() {
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
                 Deadlines don't have to be scary. Get friendly alerts and easy-to-follow timelines so you stay on track—and stress-free.
               </p>
-              <button className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base">
+              <motion.button 
+                className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base"
+                whileHover={{ scale: 1.05, backgroundColor: "rgb(239 246 255)" }}
+                whileTap={{ scale: 0.95 }}
+              >
                 Learn more
-              </button>
-            </div>
-            <div className="relative flex items-center justify-center order-1">
+              </motion.button>
+            </motion.div>
+            <motion.div 
+              className="relative flex items-center justify-center order-1"
+              variants={imageVariants}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <div className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[400px]">
                 <Image 
                   src='/features-4.svg' 
@@ -128,13 +264,30 @@ export default function FeaturesSection() {
                   className="w-full h-auto"
                 />
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Feature 5 - AI Mock Interviews */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
-            <div className="order-1">
-              <div className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">05</div>
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={featureVariants}
+          >
+            <motion.div 
+              className="order-1"
+              variants={featureVariants}
+            >
+              <motion.div 
+                className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                05
+              </motion.div>
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                 AI-Powered Mock<br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>Interviews & Feedback
@@ -142,11 +295,20 @@ export default function FeaturesSection() {
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
                 Practice makes power. Our AI coach helps you prep with real questions and helpful feedback to boost your confidence.
               </p>
-              <button className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base">
+              <motion.button 
+                className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base"
+                whileHover={{ scale: 1.05, backgroundColor: "rgb(239 246 255)" }}
+                whileTap={{ scale: 0.95 }}
+              >
                 Learn more
-              </button>
-            </div>
-            <div className="relative flex items-center justify-center order-1 lg:order-2">
+              </motion.button>
+            </motion.div>
+            <motion.div 
+              className="relative flex items-center justify-center order-1 lg:order-2"
+              variants={imageVariants}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <div className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[400px]">
                 <Image 
                   src='/features-5.svg' 
@@ -156,13 +318,30 @@ export default function FeaturesSection() {
                   className="w-full h-auto"
                 />
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Feature 6 - Professional Development */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
-            <div className="order-1 lg:order-2">
-              <div className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4">06</div>
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={featureVariants}
+          >
+            <motion.div 
+              className="order-1 lg:order-2"
+              variants={featureVariants}
+            >
+              <motion.div 
+                className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                06
+              </motion.div>
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                 Professional Development<br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>with Leaderboard Badges
@@ -170,11 +349,20 @@ export default function FeaturesSection() {
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
                 Grow your skills, earn shiny badges, and climb the leaderboard. It's career-building with a splash of fun and a dash of friendly competition.
               </p>
-              <button className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base">
+              <motion.button 
+                className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base"
+                whileHover={{ scale: 1.05, backgroundColor: "rgb(239 246 255)" }}
+                whileTap={{ scale: 0.95 }}
+              >
                 Learn more
-              </button>
-            </div>
-            <div className="relative flex items-center justify-center order-1">
+              </motion.button>
+            </motion.div>
+            <motion.div 
+              className="relative flex items-center justify-center order-1"
+              variants={imageVariants}
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <div className="w-full max-w-[250px] sm:max-w-[300px] md:max-w-[350px] lg:max-w-[400px]">
                 <Image 
                   src='/features-6.svg' 
@@ -184,9 +372,9 @@ export default function FeaturesSection() {
                   className="w-full h-auto"
                 />
               </div>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

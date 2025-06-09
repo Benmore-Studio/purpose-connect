@@ -1,5 +1,7 @@
 // components/EventsSection.tsx
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function EventsSection() {
   const events = [
@@ -65,36 +67,80 @@ export default function EventsSection() {
     },
   ];
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
     <section className="bg-white pt-10 pb-30">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-8">
+        <motion.div 
+          className="text-center mb-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Events
           </h2>
           <p className="text-xl text-gray-600">
             Employer events, workshops, and trainings.
           </p>
-        </div>
+        </motion.div>
 
         {/* Events Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mx-5">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mx-5"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {events.map((event) => (
-            <div
+            <motion.div
               key={event.id}
               className="bg-white rounded-lg sm:rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow"
+              variants={cardVariants}
+              whileHover={{ 
+                y: -10,
+                boxShadow: "0 20px 40px -10px rgba(0,0,0,0.1)"
+              }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               {/* Event Type Badge */}
               <div className="w-full py-3 sm:py-4 px-4 sm:px-5">
-                <span
+                <motion.span
                   className={`px-2.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium border ${event.typeColor}`}
+                  whileHover={{ scale: 1.05 }}
                 >
                   {event.type}
-                </span>
+                </motion.span>
 
                 {/* Event Image */}
-                <div className="relative h-24 sm:h-20 md:h-24 flex items-center justify-center mt-3 sm:mt-4 bg-gray-50 rounded-lg overflow-hidden">
+                <motion.div 
+                  className="relative h-24 sm:h-20 md:h-24 flex items-center justify-center mt-3 sm:mt-4 bg-gray-50 rounded-lg overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <Image
                     src={event.image}
                     alt={`${event.title} event`}
@@ -102,7 +148,7 @@ export default function EventsSection() {
                     className="object-cover rounded-lg"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                </div>
+                </motion.div>
               </div>
 
               {/* Event Details */}
@@ -129,15 +175,19 @@ export default function EventsSection() {
                       </svg>
                       <span>{event.registered} Registered</span>
                     </div>
-                    <button className="w-full sm:w-auto px-4 py-2 border border-gray-300 text-gray-700 rounded-md text-sm font-medium hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 transition-colors">
+                    <motion.button 
+                      className="w-full sm:w-auto px-4 py-2 border border-gray-300 text-gray-700 rounded-md text-sm font-medium hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 transition-colors"
+                      whileHover={{ scale: 1.05, backgroundColor: "rgb(249 250 251)" }}
+                      whileTap={{ scale: 0.95 }}
+                    >
                       View Details
-                    </button>
+                    </motion.button>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,42 +1,145 @@
-import React from 'react';
+'use client'
 import Image from 'next/image';
+import { motion } from "framer-motion";
 
-export default function PurposeConnectLanding() {
+export default function EmployerLanding() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const slideInLeft = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const slideInRight = {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <div className="flex items-center py-20 lg:py-30">
+    <div className="flex items-center py-20 lg:py-30 bg-gradient-to-br from-teal-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
           {/* Left Content Section */}
-          <div className="space-y-6 sm:space-y-8 text-center lg:text-left order-2 lg:order-1">
-            <div className="space-y-4 sm:space-y-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Hire the Right Talent
+          <motion.div 
+            className="space-y-6 sm:space-y-8 text-center lg:text-left order-2 lg:order-1"
+            variants={slideInLeft}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div 
+              className="space-y-4 sm:space-y-6"
+              variants={containerVariants}
+            >
+              <motion.h1 
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
+                variants={itemVariants}
+              >
+                <motion.span 
+                  className="inline-block"
+                  variants={itemVariants}
+                >
+                  Hire the Right Talent
+                </motion.span>
                 <br className="hidden sm:block" />
                 <span className="sm:hidden"> </span>
-                with Confidence
-              </h1>
+                <motion.span 
+                  className="inline-block bg-gradient-to-r from-teal-600 to-teal-500 bg-clip-text text-transparent"
+                  variants={itemVariants}
+                >
+                  with Confidence
+                </motion.span>
+              </motion.h1>
               
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <motion.p 
+                className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+                variants={itemVariants}
+              >
                 Struggling to find qualified candidates with the right work 
                 authorization? Purpose Connect simplifies your hiring process.
-              </p>
-            </div>
+              </motion.p>
+            </motion.div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center lg:justify-start">
-              <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-cyan-400 text-cyan-400 font-medium rounded-full hover:bg-cyan-50 transition-colors text-base sm:text-lg order-2 sm:order-1">
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center lg:justify-start"
+              variants={containerVariants}
+            >
+              <motion.button 
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-teal-500 text-teal-600 font-medium rounded-full hover:bg-teal-50 hover:border-teal-600 hover:text-teal-700 transition-all duration-300 text-base sm:text-lg order-2 sm:order-1"
+                variants={itemVariants}
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(45, 212, 191, 0.15)" }}
+                whileTap={{ scale: 0.98 }}
+              >
                 Search Jobs
-              </button>
+              </motion.button>
               
-              <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-cyan-400 text-white font-medium rounded-full hover:bg-cyan-500 transition-colors text-base sm:text-lg order-1 sm:order-2">
+              <motion.button 
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-teal-500 text-white font-medium rounded-full hover:bg-teal-600 transition-all duration-300 text-base sm:text-lg order-1 sm:order-2"
+                variants={itemVariants}
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(45, 212, 191, 0.25)" }}
+                whileTap={{ scale: 0.98 }}
+              >
                 Sign up Today
-              </button>
-            </div>
-          </div>
+              </motion.button>
+            </motion.div>
+          </motion.div>
 
           {/* Right Image Section */}
-          <div className="relative order-2">
-            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg sm:shadow-xl">
+          <motion.div 
+            className="relative order-2"
+            variants={slideInRight}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div 
+              className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg sm:shadow-xl"
+              whileHover={{ 
+                scale: 1.02,
+                boxShadow: "0 25px 50px rgba(45, 212, 191, 0.15)"
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-tr from-teal-500/10 to-transparent z-10"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
               <Image
                 src="/employer-landing.jpg"
                 alt="Professional interview scene showing two people having a conversation at a table"
@@ -46,8 +149,22 @@ export default function PurposeConnectLanding() {
                 priority
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
               />
-            </div>
-          </div>
+            </motion.div>
+            
+            {/* Floating Elements */}
+            <motion.div 
+              className="absolute -top-4 -right-4 w-20 h-20 bg-teal-100 rounded-full"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 0.2, scale: 1 }}
+              transition={{ delay: 1, duration: 0.6 }}
+            />
+            <motion.div 
+              className="absolute -bottom-6 -left-6 w-16 h-16 bg-yellow-100 rounded-full"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 0.3, scale: 1 }}
+              transition={{ delay: 1.2, duration: 0.6 }}
+            />
+          </motion.div>
         </div>
       </div>
     </div>

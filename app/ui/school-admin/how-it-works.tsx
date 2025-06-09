@@ -1,5 +1,8 @@
+'use client'
+
 import React from "react";
 import { Zap, Users, Target } from "lucide-react";
+import { motion } from 'framer-motion';
 
 const HowItWorks = () => {
   const steps = [
@@ -7,70 +10,197 @@ const HowItWorks = () => {
       icon: Zap,
       title: "Create Your Profile",
       description: "Add your education, work eligibility, and visa status.",
-      color: "#FAAD14"
+      color: "#A0C366" // Academic Green
     },
     {
       icon: Users,
       title: "Get Matched",
       description: "See job opportunities that fit your profile.",
-      color: "#FAAD14"
+      color: "#A0C366"
     },
     {
       icon: Target,
       title: "Stay Prepared",
       description: "Practice interviews, track applications, and stay ahead of visa timelines.",
-      color: "#FAAD14"
+      color: "#A0C366"
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 60, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const headerVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const iconVariants = {
+    hover: {
+      scale: 1.1,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <section className="bg-white py-30">
+    <section className="bg-gradient-to-b from-green-50 to-white py-30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="text-center lg:text-left mb-10 sm:mb-12 md:mb-16 lg:mb-20">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-            How it works
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-xl text-gray-600 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
+        <motion.div 
+          className="text-center lg:text-left mb-10 sm:mb-12 md:mb-16 lg:mb-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={headerVariants}
+        >
+          <motion.h2 
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight"
+            variants={headerVariants}
+          >
+            <span className="bg-gradient-to-r from-green-600 to-lime-600 bg-clip-text text-transparent">
+              How it works
+            </span>
+          </motion.h2>
+          <motion.p 
+            className="text-base sm:text-lg md:text-xl lg:text-xl text-gray-600 max-w-3xl mx-auto lg:mx-0 leading-relaxed"
+            variants={headerVariants}
+          >
             Creating your profile and landing your dream job is easy with
             Purpose Connect.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+        >
           {steps.map((step, index) => {
             const IconComponent = step.icon;
             return (
-              <div 
+              <motion.div 
                 key={index}
-                className="bg-gray-50 hover:bg-gray-100 transition-colors duration-200 rounded-lg sm:rounded-xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[280px] sm:min-h-[320px] lg:min-h-[350px] group"
+                className="bg-white hover:bg-gradient-to-br hover:from-white hover:to-green-50 transition-all duration-300 rounded-lg sm:rounded-xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[280px] sm:min-h-[320px] lg:min-h-[350px] group shadow-lg hover:shadow-xl border border-green-100"
+                variants={itemVariants}
+                whileHover={{ 
+                  y: -8,
+                  boxShadow: "0 20px 40px rgba(34, 197, 94, 0.15)"
+                }}
+                transition={{ duration: 0.3 }}
               >
                 {/* Icon */}
-                <div className="mb-6 sm:mb-8 lg:mb-12">
+                <motion.div 
+                  className="mb-6 sm:mb-8 lg:mb-12"
+                  variants={iconVariants}
+                  whileHover="hover"
+                >
                   <div 
-                    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg sm:rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-200"
+                    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg sm:rounded-xl flex items-center justify-center relative overflow-hidden"
                     style={{ backgroundColor: step.color }}
                   >
-                    <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
+                    <motion.div
+                      className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20"
+                      initial={false}
+                      animate={{ 
+                        scale: [1, 1.5, 1],
+                        opacity: [0, 0.2, 0]
+                      }}
+                      transition={{ 
+                        repeat: Infinity, 
+                        duration: 2.5, 
+                        ease: "easeInOut",
+                        delay: index * 0.4
+                      }}
+                    />
+                    <motion.div
+                      className="absolute inset-0 bg-lime-200 opacity-10 group-hover:opacity-30"
+                      animate={{ 
+                        scale: [1, 1.2, 1]
+                      }}
+                      transition={{ 
+                        repeat: Infinity, 
+                        duration: 3, 
+                        ease: "easeInOut",
+                        delay: index * 0.2
+                      }}
+                    />
+                    <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white relative z-10" />
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Content */}
-                <div className="flex-1">
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 lg:mb-4">
+                <motion.div 
+                  className="flex-1"
+                  variants={itemVariants}
+                >
+                  <motion.h3 
+                    className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 lg:mb-4"
+                    variants={itemVariants}
+                  >
                     {step.title}
-                  </h3>
-                  <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
+                  </motion.h3>
+                  <motion.p 
+                    className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed"
+                    variants={itemVariants}
+                  >
                     {step.description}
-                  </p>
-                </div>
-              </div>
+                  </motion.p>
+                </motion.div>
+
+                {/* Step Number */}
+                <motion.div
+                  className="absolute -top-3 -right-3 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  initial={{ scale: 0, rotate: -180 }}
+                  whileHover={{ scale: 1, rotate: 0 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  {index + 1}
+                </motion.div>
+
+                {/* Academic Progress Bar */}
+                <motion.div
+                  className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-lime-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-lg"
+                  initial={{ scaleX: 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                />
+              </motion.div>
             );
           })}
-        </div>
-
-        {/* Call to Action - Optional */}
+        </motion.div>
       </div>
     </section>
   );
