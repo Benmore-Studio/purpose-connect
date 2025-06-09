@@ -1,7 +1,6 @@
 'use client'
 import { Zap, Users, Target } from "lucide-react";
-import { motion } from 'motion/react';
-
+import { motion } from 'framer-motion';
 
 const HowItWorks = () => {
   const steps = [
@@ -30,43 +29,32 @@ const HowItWorks = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
+        staggerChildren: 0.15,
+        delayChildren: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 60, scale: 0.8 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.5,
         ease: "easeOut"
       }
     }
   };
 
   const headerVariants = {
-    hidden: { opacity: 0, x: -30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const iconVariants = {
-    hover: {
-      scale: 1.1,
+      y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeInOut"
+        ease: "easeOut"
       }
     }
   };
@@ -112,40 +100,27 @@ const HowItWorks = () => {
             return (
               <motion.div 
                 key={index}
-                className="bg-white hover:bg-gradient-to-br hover:from-white hover:to-teal-50 transition-all duration-300 rounded-lg sm:rounded-xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[280px] sm:min-h-[320px] lg:min-h-[350px] group shadow-lg hover:shadow-xl border border-teal-100"
+                className="bg-white rounded-lg sm:rounded-xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[280px] sm:min-h-[320px] lg:min-h-[350px] group shadow-sm hover:shadow-md border border-gray-100 hover:border-teal-200 transition-all duration-300"
                 variants={itemVariants}
                 whileHover={{ 
-                  y: -8,
-                  boxShadow: "0 20px 40px rgba(45, 212, 191, 0.15)"
+                  y: -2,
+                  transition: { duration: 0.2, ease: "easeOut" }
                 }}
-                transition={{ duration: 0.3 }}
               >
                 {/* Icon */}
                 <motion.div 
                   className="mb-6 sm:mb-8 lg:mb-12"
-                  variants={iconVariants}
-                  whileHover="hover"
                 >
-                  <div 
-                    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg sm:rounded-xl flex items-center justify-center relative overflow-hidden"
+                  <motion.div 
+                    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg sm:rounded-xl flex items-center justify-center transition-all duration-300"
                     style={{ backgroundColor: step.color }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      transition: { duration: 0.2 }
+                    }}
                   >
-                    <motion.div
-                      className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20"
-                      initial={false}
-                      animate={{ 
-                        scale: [1, 2, 1],
-                        opacity: [0, 0.2, 0]
-                      }}
-                      transition={{ 
-                        repeat: Infinity, 
-                        duration: 2, 
-                        ease: "easeInOut",
-                        delay: index * 0.3
-                      }}
-                    />
-                    <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white relative z-10" />
-                  </div>
+                    <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
+                  </motion.div>
                 </motion.div>
 
                 {/* Content */}
@@ -154,7 +129,7 @@ const HowItWorks = () => {
                   variants={itemVariants}
                 >
                   <motion.h3 
-                    className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 lg:mb-4"
+                    className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 lg:mb-4 group-hover:text-teal-700 transition-colors duration-300"
                     variants={itemVariants}
                   >
                     {step.title}
@@ -167,13 +142,10 @@ const HowItWorks = () => {
                   </motion.p>
                 </motion.div>
 
-                {/* Step Number */}
+                {/* Subtle Accent Line */}
                 <motion.div
-                  className="absolute -top-3 -right-3 w-8 h-8 bg-teal-500 text-white rounded-full flex items-center justify-center text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                >
-                  {index + 1}
-                </motion.div>
+                  className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-teal-500 to-teal-400 rounded-b-lg transition-all duration-300 w-0 group-hover:w-full"
+                />
               </motion.div>
             );
           })}

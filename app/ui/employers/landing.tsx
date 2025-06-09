@@ -8,7 +8,7 @@ export default function EmployerLanding() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
         delayChildren: 0.1
       }
     }
@@ -46,6 +46,32 @@ export default function EmployerLanding() {
       transition: {
         duration: 0.8,
         ease: "easeOut"
+      }
+    }
+  };
+
+  // Separate button variants for more control
+  const primaryButtonVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const secondaryButtonVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+        delay: 0.1
       }
     }
   };
@@ -94,27 +120,60 @@ export default function EmployerLanding() {
               </motion.p>
             </motion.div>
 
-            {/* CTA Buttons */}
+            {/* Fixed CTA Buttons */}
             <motion.div 
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center lg:justify-start"
-              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
             >
+              {/* Primary CTA Button */}
               <motion.button 
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-teal-500 text-teal-600 font-medium rounded-full hover:bg-teal-50 hover:border-teal-600 hover:text-teal-700 transition-all duration-300 text-base sm:text-lg order-2 sm:order-1"
-                variants={itemVariants}
-                whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(45, 212, 191, 0.15)" }}
-                whileTap={{ scale: 0.98 }}
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-teal-500 text-white font-medium rounded-full transition-all duration-300 text-base sm:text-lg order-1 sm:order-1 shadow-lg hover:shadow-xl"
+                variants={primaryButtonVariants}
+                whileHover={{ 
+                  scale: 1.03,
+                  backgroundColor: "rgb(20 184 166)", // teal-600
+                  boxShadow: "0 20px 25px -5px rgba(45, 212, 191, 0.25), 0 10px 10px -5px rgba(45, 212, 191, 0.1)",
+                  transition: { duration: 0.2 }
+                }}
+                whileTap={{ 
+                  scale: 0.97,
+                  transition: { duration: 0.1 }
+                }}
               >
-                Search Jobs
+                <motion.span
+                  initial={{ opacity: 1 }}
+                  whileHover={{ opacity: 0.9 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  Sign up Today
+                </motion.span>
               </motion.button>
               
+              {/* Secondary CTA Button */}
               <motion.button 
-                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-teal-500 text-white font-medium rounded-full hover:bg-teal-600 transition-all duration-300 text-base sm:text-lg order-1 sm:order-2"
-                variants={itemVariants}
-                whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(45, 212, 191, 0.25)" }}
-                whileTap={{ scale: 0.98 }}
+                className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-teal-500 text-teal-600 font-medium rounded-full transition-all duration-300 text-base sm:text-lg order-2 sm:order-2 bg-white hover:bg-teal-50"
+                variants={secondaryButtonVariants}
+                whileHover={{ 
+                  scale: 1.03,
+                  borderColor: "rgb(20 184 166)", // teal-600
+                  color: "rgb(15 118 110)", // teal-700
+                  backgroundColor: "rgb(240 253 250)", // teal-50
+                  boxShadow: "0 10px 15px -3px rgba(45, 212, 191, 0.1), 0 4px 6px -2px rgba(45, 212, 191, 0.05)",
+                  transition: { duration: 0.2 }
+                }}
+                whileTap={{ 
+                  scale: 0.97,
+                  transition: { duration: 0.1 }
+                }}
               >
-                Sign up Today
+                <motion.span
+                  initial={{ opacity: 1 }}
+                  whileHover={{ opacity: 0.9 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  Search Jobs
+                </motion.span>
               </motion.button>
             </motion.div>
           </motion.div>
@@ -130,9 +189,9 @@ export default function EmployerLanding() {
               className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg sm:shadow-xl"
               whileHover={{ 
                 scale: 1.02,
-                boxShadow: "0 25px 50px rgba(45, 212, 191, 0.15)"
+                boxShadow: "0 25px 50px rgba(45, 212, 191, 0.15)",
+                transition: { duration: 0.3 }
               }}
-              transition={{ duration: 0.3 }}
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-tr from-teal-500/10 to-transparent z-10"

@@ -31,18 +31,29 @@ const HowItWorks = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
+        staggerChildren: 0.15,
+        delayChildren: 0.2
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 60, scale: 0.9 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const headerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
       transition: {
         duration: 0.6,
         ease: "easeOut"
@@ -50,30 +61,8 @@ const HowItWorks = () => {
     }
   };
 
-  const headerVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const iconVariants = {
-    hover: {
-      scale: 1.1,
-      transition: {
-        duration: 0.3,
-        ease: "easeOut"
-      }
-    }
-  };
-
   return (
-    <section className="bg-gradient-to-b from-green-50 to-white py-30">
+    <section className="bg-gradient-to-b from-green-50 to-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <motion.div 
@@ -113,52 +102,27 @@ const HowItWorks = () => {
             return (
               <motion.div 
                 key={index}
-                className="bg-white hover:bg-gradient-to-br hover:from-white hover:to-green-50 transition-all duration-300 rounded-lg sm:rounded-xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[280px] sm:min-h-[320px] lg:min-h-[350px] group shadow-lg hover:shadow-xl border border-green-100"
+                className="bg-white rounded-lg sm:rounded-xl p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[280px] sm:min-h-[320px] lg:min-h-[350px] group shadow-sm hover:shadow-md border border-green-100 hover:border-green-200 transition-all duration-300 relative"
                 variants={itemVariants}
                 whileHover={{ 
-                  y: -8,
-                  boxShadow: "0 20px 40px rgba(34, 197, 94, 0.15)"
+                  y: -2,
+                  transition: { duration: 0.2, ease: "easeOut" }
                 }}
-                transition={{ duration: 0.3 }}
               >
                 {/* Icon */}
                 <motion.div 
                   className="mb-6 sm:mb-8 lg:mb-12"
-                  variants={iconVariants}
-                  whileHover="hover"
                 >
-                  <div 
-                    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg sm:rounded-xl flex items-center justify-center relative overflow-hidden"
+                  <motion.div 
+                    className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-lg sm:rounded-xl flex items-center justify-center transition-all duration-300"
                     style={{ backgroundColor: step.color }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      transition: { duration: 0.2 }
+                    }}
                   >
-                    <motion.div
-                      className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20"
-                      initial={false}
-                      animate={{ 
-                        scale: [1, 1.5, 1],
-                        opacity: [0, 0.2, 0]
-                      }}
-                      transition={{ 
-                        repeat: Infinity, 
-                        duration: 2.5, 
-                        ease: "easeInOut",
-                        delay: index * 0.4
-                      }}
-                    />
-                    <motion.div
-                      className="absolute inset-0 bg-lime-200 opacity-10 group-hover:opacity-30"
-                      animate={{ 
-                        scale: [1, 1.2, 1]
-                      }}
-                      transition={{ 
-                        repeat: Infinity, 
-                        duration: 3, 
-                        ease: "easeInOut",
-                        delay: index * 0.2
-                      }}
-                    />
-                    <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white relative z-10" />
-                  </div>
+                    <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white" />
+                  </motion.div>
                 </motion.div>
 
                 {/* Content */}
@@ -167,7 +131,7 @@ const HowItWorks = () => {
                   variants={itemVariants}
                 >
                   <motion.h3 
-                    className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 lg:mb-4"
+                    className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 lg:mb-4 group-hover:text-green-700 transition-colors duration-300"
                     variants={itemVariants}
                   >
                     {step.title}
@@ -180,22 +144,9 @@ const HowItWorks = () => {
                   </motion.p>
                 </motion.div>
 
-                {/* Step Number */}
+                {/* Subtle Accent Line */}
                 <motion.div
-                  className="absolute -top-3 -right-3 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ scale: 0, rotate: -180 }}
-                  whileHover={{ scale: 1, rotate: 0 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                >
-                  {index + 1}
-                </motion.div>
-
-                {/* Academic Progress Bar */}
-                <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-lime-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-lg"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-green-400 to-lime-500 rounded-b-lg transition-all duration-300 w-0 group-hover:w-full"
                 />
               </motion.div>
             );
