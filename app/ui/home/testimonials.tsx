@@ -195,7 +195,7 @@ export default function TestimonialsSection() {
               </div>
 
               {/* Attribution */}
-              <div className="mt-4 sm:mt-6 pt-4 border-t border-gray-700">
+              {/* <div className="mt-4 sm:mt-6 pt-4 border-t border-gray-700">
                 <div className="flex items-center space-x-3">
                   <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden">
                     <Image 
@@ -215,7 +215,7 @@ export default function TestimonialsSection() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

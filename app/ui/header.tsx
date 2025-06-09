@@ -5,19 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -49,12 +37,12 @@ export default function Header() {
             <div className="flex-shrink-0">
               <div className="flex items-center space-x-3">
                 <Image
-                  src="/logo.png"
+                  src="/logo.svg"
                   alt="Connect Logo"
                   width={40}
                   height={40}
                   priority
-                  className="h-16 w-16 object-contain"
+                  className="h-16 w-16 lg:h-24 lg:w-24 object-contain"
                 />
               </div>
             </div>
@@ -181,14 +169,14 @@ export default function Header() {
                   Students
                 </Link>
                 <Link
-                  href="/employer"
+                  href="/employers"
                   onClick={closeMenu}
                   className="block w-full text-left px-4 py-4 text-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors duration-200 font-medium border-b border-gray-100"
                 >
                   Employer
                 </Link>
                 <Link
-                  href="/immigration-lawyer"
+                  href="/immigration-lawyers"
                   onClick={closeMenu}
                   className="block w-full text-left px-4 py-4 text-lg text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors duration-200 font-medium border-b border-gray-100"
                 >
@@ -217,9 +205,6 @@ export default function Header() {
                 </Link>
               </div>
             </nav>
-
-            {/* CTA Button */}
-            
           </div>
         </div>
       </div>
