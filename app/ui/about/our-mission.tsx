@@ -89,32 +89,6 @@ export default function OurMission() {
           </motion.p>
         </div>
       </div>
-      
-      {/* Floating particles effect */}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-2 h-2 bg-white rounded-full opacity-20"
-          initial={{
-            x: Math.random() * window.innerWidth,
-            y: window.innerHeight + 50,
-          }}
-          animate={{
-            y: -50,
-            x: Math.random() * 100 - 50,
-          }}
-          transition={{
-            duration: Math.random() * 10 + 10,
-            repeat: Infinity,
-            delay: Math.random() * 5,
-            ease: "linear"
-          }}
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-        />
-      ))}
     </section>
   );
 }
