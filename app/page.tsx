@@ -1,6 +1,5 @@
 import Header from "./ui/header";
 import HeroSection from "./ui/home/landing";
-import InteractiveDemo from "./ui/home/interactive-demo";
 import BuiltFor from "./ui/home/built-for";
 import FeaturesSection from "./ui/home/features";
 import EventsSection from "./ui/home/events";
