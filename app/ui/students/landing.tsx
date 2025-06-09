@@ -22,7 +22,7 @@ const Landing = () => {
   };
 
   return (
-    <div className="bg-white flex items-center justify-center px-4 py-28 relative overflow-hidden">
+    <div className="bg-white flex items-center justify-center px-4 py-30 relative overflow-hidden">
 
       <div className="max-w-7xl w-full relative z-10">
         {/* Mobile Layout - Single Column */}

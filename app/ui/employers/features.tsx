@@ -79,7 +79,7 @@ export default function EmployerFeaturesSection() {
         {/* Header */}
         <motion.div 
           className="text-center mb-12 sm:mb-16"
-          initial="hidden"
+          // initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={headerVariants}

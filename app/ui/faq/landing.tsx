@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 interface FAQItem {
     question: string;
@@ -53,179 +52,102 @@ export default function PurposeConnectFAQ() {
         }
     ];
 
-    const containerVariants = {
-        hidden: {},
-        visible: {
-            transition: {
-                staggerChildren: 0.1
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { 
-            opacity: 0, 
-            y: 20,
-            scale: 0.98
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            transition: {
-                duration: 0.5,
-                ease: "easeOut"
-            }
-        }
-    };
-
-    const iconVariants = {
-        closed: { rotate: 0 },
-        open: { rotate: 180 }
-    };
-
-    const answerVariants = {
-        closed: {
-            opacity: 0,
-            height: 0,
-            y: -10,
-            transition: {
-                duration: 0.3,
-                ease: "easeInOut"
-            }
-        },
-        open: {
-            opacity: 1,
-            height: "auto",
-            y: 0,
-            transition: {
-                duration: 0.4,
-                ease: "easeOut"
-            }
-        }
-    };
-
     return (
-        <section className="bg-white pt-30">
+        <section className="bg-white py-30">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Animated Header */}
-                <motion.div 
-                    className="text-center mb-8 sm:mb-10 md:mb-12"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <motion.h1 
-                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                    >
+                {/* Header */}
+                <div className="text-center mb-8 sm:mb-10 md:mb-12 animate-fade-in">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
                         Frequently asked questions
-                    </motion.h1>
-                    <motion.p 
-                        className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                    >
+                    </h1>
+                    <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
                         Everything you need to know about Purpose Connect.
-                    </motion.p>
-                </motion.div>
+                    </p>
+                </div>
 
-                {/* Animated FAQ Items */}
-                <motion.div 
-                    className="space-y-0 border-b border-gray-200 rounded-lg sm:rounded-xl overflow-hidden bg-white shadow-sm"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-50px" }}
-                >
+                {/* FAQ Items */}
+                <div className="space-y-0 border-b border-gray-200 rounded-lg sm:rounded-xl overflow-hidden bg-white shadow-sm">
                     {faqData.map((item: FAQItem, index: number) => (
-                        <motion.div 
+                        <div 
                             key={index} 
-                            className="border-t border-gray-200 first:border-t-0"
-                            variants={itemVariants}
-                            whileHover={{ 
-                                backgroundColor: "rgba(249, 250, 251, 0.8)",
-                                transition: { duration: 0.2 }
-                            }}
+                            className="border-t border-gray-200 first:border-t-0 animate-slide-up"
+                            style={{ animationDelay: `${index * 0.1}s` }}
                         >
-                            <motion.button
+                            <button
                                 onClick={() => toggleItem(index)}
-                                className={`w-full px-4 sm:px-6 py-4 sm:py-5 md:py-6 text-left flex items-center justify-between transition-colors duration-200 hover:bg-gray-50 focus:bg-gray-50 ${
+                                className={`w-full px-4 sm:px-6 py-4 sm:py-5 md:py-6 text-left flex items-center justify-between transition-all duration-200 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none ${
                                     openItems[index] ? 'bg-gray-50' : 'bg-white'
                                 }`}
                                 aria-expanded={openItems[index]}
                                 aria-controls={`faq-answer-${index}`}
-                                whileTap={{ scale: 0.99 }}
                             >
                                 <div className="flex items-start sm:items-center flex-1 min-w-0">
-                                    <motion.div 
-                                        className="mr-3 sm:mr-4 flex-shrink-0 mt-1 sm:mt-0"
-                                        whileHover={{ scale: 1.1 }}
-                                        transition={{ type: "spring", stiffness: 400 }}
-                                    >
-                                        <motion.div 
-                                            className="w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-gray-300 flex items-center justify-center transition-colors duration-200"
-                                            animate={openItems[index] ? "open" : "closed"}
-                                            whileHover={{ 
-                                                borderColor: "#3B82F6",
-                                                backgroundColor: "rgba(59, 130, 246, 0.1)"
-                                            }}
-                                        >
-                                            <motion.div
-                                                variants={iconVariants}
-                                                transition={{ duration: 0.3, ease: "easeInOut" }}
-                                            >
-                                                {openItems[index] ? (
-                                                    <Minus className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
-                                                ) : (
-                                                    <Plus className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
-                                                )}
-                                            </motion.div>
-                                        </motion.div>
-                                    </motion.div>
-                                    <motion.span 
-                                        className="text-base sm:text-lg md:text-xl font-medium text-gray-900 leading-relaxed pr-2"
-                                        whileHover={{ color: "#1F2937" }}
-                                    >
+                                    <div className="mr-3 sm:mr-4 flex-shrink-0 mt-1 sm:mt-0">
+                                        <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full border border-gray-300 flex items-center justify-center transition-all duration-200 hover:border-blue-400 hover:bg-blue-50 ${
+                                            openItems[index] ? 'rotate-180' : ''
+                                        }`}>
+                                            {openItems[index] ? (
+                                                <Minus className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
+                                            ) : (
+                                                <Plus className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />
+                                            )}
+                                        </div>
+                                    </div>
+                                    <span className="text-base sm:text-lg md:text-xl font-medium text-gray-900 leading-relaxed pr-2">
                                         {item.question}
-                                    </motion.span>
+                                    </span>
                                 </div>
-                            </motion.button>
+                            </button>
 
-                            <AnimatePresence>
-                                {openItems[index] && (
-                                    <motion.div 
-                                        id={`faq-answer-${index}`}
-                                        className="bg-gray-50 px-4 sm:px-6 border-t border-gray-100 overflow-hidden"
-                                        variants={answerVariants}
-                                        initial="closed"
-                                        animate="open"
-                                        exit="closed"
-                                    >
-                                        <motion.div 
-                                            className="ml-8 sm:ml-10 py-4 sm:py-5"
-                                            initial={{ opacity: 0, y: -10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: -10 }}
-                                            transition={{ duration: 0.3, delay: 0.1 }}
-                                        >
-                                            <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-                                                {item.expanded}
-                                            </p>
-                                        </motion.div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </motion.div>
+                            {/* Answer Panel */}
+                            <div 
+                                className={`bg-gray-50 border-t border-gray-100 overflow-hidden transition-all duration-300 ease-out ${
+                                    openItems[index] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                                }`}
+                                id={`faq-answer-${index}`}
+                            >
+                                <div className="ml-8 sm:ml-10 py-4 sm:py-5 px-4 sm:px-6">
+                                    <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
+                                        {item.expanded}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     ))}
-                </motion.div>
+                </div>
             </div>
+
+            <style jsx>{`
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                @keyframes slideUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                .animate-fade-in {
+                    animation: fadeIn 0.6s ease-out;
+                }
+
+                .animate-slide-up {
+                    animation: slideUp 0.5s ease-out both;
+                }
+            `}</style>
         </section>
     );
 }

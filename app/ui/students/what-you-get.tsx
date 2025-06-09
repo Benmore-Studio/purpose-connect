@@ -93,15 +93,13 @@ const WhatYouGet = () => {
         <motion.div 
           className="text-center mb-16 lg:mb-20"
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <motion.div 
             className="text-orange-500 font-medium text-lg mb-4"
             initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             What you get
@@ -109,8 +107,7 @@ const WhatYouGet = () => {
           <motion.h2 
             className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-6 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             We're here every step of the way
@@ -118,8 +115,7 @@ const WhatYouGet = () => {
           <motion.p 
             className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             Purpose Connect provides tailored job matching, expert immigration support, 
@@ -240,29 +236,6 @@ const WhatYouGet = () => {
             )
           })}
         </motion.div>
-
-        {/* Floating elements for additional visual interest - blue theme */}
-        {[...Array(4)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-blue-300 rounded-full opacity-20"
-            animate={{
-              y: [0, -20, 0],
-              x: [0, 10, 0],
-              opacity: [0.2, 0.4, 0.2]
-            }}
-            transition={{
-              duration: Math.random() * 4 + 4,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-              ease: "easeInOut"
-            }}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
       </div>
     </section>
   )

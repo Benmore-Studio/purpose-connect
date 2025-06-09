@@ -78,19 +78,22 @@ export default function Features() {
         <motion.div 
           className="text-center mb-16"
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          animate="visible"
           variants={headerVariants}
         >
           <motion.p 
             className="text-amber-600 font-medium text-lg mb-4"
-            variants={headerVariants}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
           >
             What you get
           </motion.p>
           <motion.h2 
             className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
-            variants={headerVariants}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <span className="bg-gradient-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent">
               We're here every step
@@ -99,7 +102,9 @@ export default function Features() {
           </motion.h2>
           <motion.p 
             className="text-xl text-gray-600 max-w-5xl mx-auto leading-relaxed"
-            variants={headerVariants}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
             We streamline your practice by connecting you with qualified international 
             student clients who need visa and immigration support, manage cases 
