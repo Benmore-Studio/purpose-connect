@@ -89,7 +89,7 @@ export default function EventsSection() {
   };
 
   return (
-    <section className="bg-white pt-10 pb-30">
+    <section className="bg-white pt-10 pb-30 px-4 lg:px-0">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div 
@@ -102,7 +102,7 @@ export default function EventsSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Events
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 ">
             Employer events, workshops, and trainings.
           </p>
         </motion.div>
