@@ -65,13 +65,6 @@ const HowItWorks = () => {
                     {step.description}
                   </p>
                 </div>
-
-                {/* Step Number - Optional visual enhancement */}
-                <div className="absolute top-4 right-4 sm:top-6 sm:right-6 opacity-20 group-hover:opacity-30 transition-opacity duration-200">
-                  <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                </div>
               </div>
             );
           })}
