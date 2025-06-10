@@ -103,7 +103,6 @@ export default function Landing() {
                 borderColor: "#C1B666",
                 color: "#C1B666",
               }}
-              // variants={fadeInUp}
               whileHover={{
                 scale: 1.02,
                 backgroundColor: "#C1B66610",
@@ -119,7 +118,6 @@ export default function Landing() {
               style={{
                 backgroundColor: "#C1B666",
               }}
-              // variants={fadeInUp}
               whileHover={{
                 scale: 1.02,
                 backgroundColor: "#e6c625",
@@ -223,7 +221,6 @@ export default function Landing() {
                   borderColor: "#C1B666",
                   color: "#C1B666",
                 }}
-                variants={fadeInUp}
                 whileHover={{
                   scale: 1.05,
                   backgroundColor: "#C1B66610",
@@ -239,7 +236,6 @@ export default function Landing() {
                 style={{
                   backgroundColor: "#C1B666",
                 }}
-                variants={fadeInUp}
                 whileHover={{
                   scale: 1.05,
                   backgroundColor: "#C1B670",
