@@ -106,7 +106,7 @@ export default function WhatWeDo() {
 
             {/* Animated orange active line for first item */}
             <motion.div 
-              className="absolute left-0 top-0 w-1 h-20 bg-orange-400"
+              className="absolute left-0 top-0 w-1 h-20 bg-[#EFD329]"
               initial={{ scaleY: 0, opacity: 0 }}
               whileInView={{ scaleY: 1, opacity: 1 }}
               viewport={{ once: true }}
@@ -130,7 +130,7 @@ export default function WhatWeDo() {
                 >
                   {/* Animated hover line indicator */}
                   <motion.div
-                    className="absolute left-0 top-0 w-1 h-full bg-orange-400 opacity-0 group-hover:opacity-100"
+                    className="absolute left-0 top-0 w-1 h-full bg-[#EFD329] opacity-0 group-hover:opacity-100"
                     initial={{ scaleY: 0 }}
                     whileHover={{ scaleY: 1 }}
                     transition={{ duration: 0.3 }}
@@ -138,7 +138,7 @@ export default function WhatWeDo() {
                   />
                   
                   <motion.h3 
-                    className="text-xl lg:text-2xl font-bold text-gray-900 mb-3 lg:mb-4 group-hover:text-orange-500 transition-colors duration-300"
+                    className="text-xl lg:text-2xl font-bold text-gray-900 mb-3 lg:mb-4 group-hover:text-[#EFD329] transition-colors duration-300"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}

@@ -76,7 +76,7 @@ export default function LawyerFeatures() {
           variants={headerVariants}
         >
           <motion.p 
-            className="text-yellow-600 font-medium text-base sm:text-lg mb-3 sm:mb-4"
+            className="text-[#EFD329] font-medium text-base sm:text-lg mb-3 sm:mb-4"
             variants={headerVariants}
           >
             What you get

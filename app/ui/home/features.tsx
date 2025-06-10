@@ -77,7 +77,7 @@ export default function FeaturesSection() {
             className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             variants={featureVariants}
           >
             <motion.div 
@@ -85,7 +85,7 @@ export default function FeaturesSection() {
               variants={featureVariants}
             >
               <motion.div 
-                className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
+                className="text-[#069DDE] text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -125,7 +125,7 @@ export default function FeaturesSection() {
             className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             variants={featureVariants}
           >
             <motion.div 
@@ -133,7 +133,7 @@ export default function FeaturesSection() {
               variants={featureVariants}
             >
               <motion.div 
-                className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
+                className="text-[#069DDE] text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -173,7 +173,7 @@ export default function FeaturesSection() {
             className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             variants={featureVariants}
           >
             <motion.div 
@@ -181,7 +181,7 @@ export default function FeaturesSection() {
               variants={featureVariants}
             >
               <motion.div 
-                className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
+                className="text-[#069DDE] text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -221,7 +221,7 @@ export default function FeaturesSection() {
             className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             variants={featureVariants}
           >
             <motion.div 
@@ -229,7 +229,7 @@ export default function FeaturesSection() {
               variants={featureVariants}
             >
               <motion.div 
-                className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
+                className="text-[#069DDE] text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -268,7 +268,7 @@ export default function FeaturesSection() {
             className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             variants={featureVariants}
           >
             <motion.div 
@@ -276,7 +276,7 @@ export default function FeaturesSection() {
               variants={featureVariants}
             >
               <motion.div 
-                className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
+                className="text-[#069DDE] text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -315,7 +315,7 @@ export default function FeaturesSection() {
             className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             variants={featureVariants}
           >
             <motion.div 
@@ -323,7 +323,7 @@ export default function FeaturesSection() {
               variants={featureVariants}
             >
               <motion.div 
-                className="text-orange-500 text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
+                className="text-[#069DDE] text-sm sm:text-base md:text-lg font-semibold mb-3 sm:mb-4"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}

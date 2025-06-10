@@ -202,7 +202,7 @@ export default function TestimonialsSection() {
                 What our{" "}
               </motion.span>
               <motion.span
-                className="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent"
+                className="text-[#069DDE]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -227,9 +227,9 @@ export default function TestimonialsSection() {
                 <motion.button
                   key={testimonial.id}
                   onClick={() => handleTestimonialClick(index)}
-                  className={`w-full text-left rounded-xl sm:rounded-2xl p-4 sm:p-6 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 overflow-hidden relative ${
+                  className={`w-full text-left rounded-xl sm:rounded-2xl p-4 sm:p-6 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#069DDE] overflow-hidden relative ${
                     activeTestimonial === index
-                      ? "bg-[#FF7659] shadow-lg sm:shadow-2xl"
+                      ? "bg-[#069DDE] shadow-lg sm:shadow-2xl"
                       : "bg-[#201F31] hover:bg-[#2a2842]"
                   }`}
                   variants={cardVariants}
@@ -327,7 +327,7 @@ export default function TestimonialsSection() {
                   onClick={() => handleTestimonialClick(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     activeTestimonial === index 
-                      ? "bg-orange-500 w-8" 
+                      ? "bg-[#5DAFA1] w-8" 
                       : "bg-gray-600 w-2 hover:bg-gray-500"
                   }`}
                   whileHover={{ scale: 1.2 }}
@@ -351,7 +351,7 @@ export default function TestimonialsSection() {
             >
               <motion.button
                 onClick={handlePrevious}
-                className="w-10 h-10 sm:w-12 sm:h-12 border border-gray-600 rounded-full flex items-center justify-center focus:outline-none transition-all duration-300 hover:border-orange-400 hover:bg-orange-400/10"
+                className="w-10 h-10 sm:w-12 sm:h-12 border border-gray-600 rounded-full flex items-center justify-center focus:outline-none transition-all duration-300 hover:border-[#069DDE]"
                 whileHover={{ 
                   scale: 1.1, 
                   borderColor: "rgb(249 115 22)",
@@ -379,7 +379,7 @@ export default function TestimonialsSection() {
               
               <motion.button
                 onClick={handleNext}
-                className="w-10 h-10 sm:w-12 sm:h-12 border border-gray-600 rounded-full flex items-center justify-center hover:border-orange-400 focus:border-orange-400 focus:outline-none transition-all duration-300 hover:bg-orange-400/10"
+                className="w-10 h-10 sm:w-12 sm:h-12 border border-gray-600 rounded-full flex items-center justify-center hover:border-[#069DDE] focus:border-[#069DDE] focus:outline-none transition-all duration-300"
                 whileHover={{ 
                   scale: 1.1, 
                   borderColor: "rgb(251 146 60)",
@@ -423,7 +423,7 @@ export default function TestimonialsSection() {
               >
                 {/* Animated background accent */}
                 <motion.div
-                  className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-orange-600"
+                  className="absolute top-0 left-0 w-full h-1 "
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.8, delay: 0.2 }}

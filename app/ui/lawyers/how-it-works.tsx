@@ -161,8 +161,7 @@ const HowItWorks = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
                 >
                   <motion.h3
-                    className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 lg:mb-4 group-hover:text-yellow-600 transition-colors duration-300"
-                    whileHover={{ color: "#C1B666" }}
+                    className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-2 sm:mb-3 lg:mb-4 group-hover:text-[#EFD329] transition-colors duration-300"
                     transition={{ duration: 0.2 }}
                   >
                     {step.title}
@@ -179,7 +178,7 @@ const HowItWorks = () => {
 
                 {/* Step number indicator */}
                 <motion.div
-                  className="absolute top-4 right-4 w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center text-yellow-600 font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute top-4 right-4 w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center text-[#EFD329] font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   initial={{ scale: 0 }}
                   whileHover={{ scale: 1 }}
                   transition={{ type: "spring", stiffness: 400 }}
@@ -189,7 +188,7 @@ const HowItWorks = () => {
 
                 {/* Subtle Accent Line */}
                 <motion.div
-                  className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-yellow-500 to-yellow-400 rounded-b-lg sm:rounded-b-xl transition-all duration-300 w-0 group-hover:w-full"
+                  className="absolute bottom-0 left-0 h-1 bg-[#EFD329] rounded-b-lg sm:rounded-b-xl transition-all duration-300 w-0 group-hover:w-full"
                 />
               </motion.div>
             );
