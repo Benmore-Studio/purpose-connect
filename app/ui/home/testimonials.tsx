@@ -185,68 +185,6 @@ export default function TestimonialsSection() {
           </div>
         </motion.div>
 
-        {/* Enhanced Navigation Controls */}
-        <motion.div 
-          className="flex justify-center sm:justify-end mb-6 sm:mb-0 sm:absolute sm:top-4 md:top-8 sm:right-16 md:right-32 space-x-3 sm:space-x-4 z-10"
-          variants={itemVariants}
-        >
-          <motion.button
-            onClick={handlePrevious}
-            className="w-10 h-10 sm:w-12 sm:h-12 border border-gray-600 rounded-full flex items-center justify-center focus:outline-none transition-all duration-300 hover:border-orange-400 hover:bg-orange-400/10"
-            whileHover={{ 
-              scale: 1.1, 
-              borderColor: "rgb(249 115 22)",
-              boxShadow: "0 0 20px rgba(249, 115, 22, 0.3)"
-            }}
-            whileTap={{ scale: 0.9 }}
-            aria-label="Previous testimonial"
-          >
-            <motion.svg
-              className="w-4 h-4 sm:w-5 sm:h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              whileHover={{ x: -2 }}
-              transition={{ duration: 0.2 }}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </motion.svg>
-          </motion.button>
-          
-          <motion.button
-            onClick={handleNext}
-            className="w-10 h-10 sm:w-12 sm:h-12 border border-gray-600 rounded-full flex items-center justify-center hover:border-orange-400 focus:border-orange-400 focus:outline-none transition-all duration-300 hover:bg-orange-400/10"
-            whileHover={{ 
-              scale: 1.1, 
-              borderColor: "rgb(251 146 60)",
-              boxShadow: "0 0 20px rgba(251, 146, 60, 0.3)"
-            }}
-            whileTap={{ scale: 0.9 }}
-            aria-label="Next testimonial"
-          >
-            <motion.svg
-              className="w-4 h-4 sm:w-5 sm:h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              whileHover={{ x: 2 }}
-              transition={{ duration: 0.2 }}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </motion.svg>
-          </motion.button>
-        </motion.div>
-
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start lg:items-end">
           {/* Left Side - Client Cards */}
@@ -403,9 +341,71 @@ export default function TestimonialsSection() {
 
           {/* Right Side - Enhanced Active Testimonial */}
           <motion.div 
-            className="order-1 lg:order-2"
+            className="order-1 lg:order-2 relative"
             variants={itemVariants}
           >
+            {/* Navigation Controls - Now positioned relative to the testimonial container */}
+            <motion.div 
+              className="flex justify-center lg:justify-end space-x-3 sm:space-x-4 mb-6"
+              variants={itemVariants}
+            >
+              <motion.button
+                onClick={handlePrevious}
+                className="w-10 h-10 sm:w-12 sm:h-12 border border-gray-600 rounded-full flex items-center justify-center focus:outline-none transition-all duration-300 hover:border-orange-400 hover:bg-orange-400/10"
+                whileHover={{ 
+                  scale: 1.1, 
+                  borderColor: "rgb(249 115 22)",
+                  boxShadow: "0 0 20px rgba(249, 115, 22, 0.3)"
+                }}
+                whileTap={{ scale: 0.9 }}
+                aria-label="Previous testimonial"
+              >
+                <motion.svg
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  whileHover={{ x: -2 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </motion.svg>
+              </motion.button>
+              
+              <motion.button
+                onClick={handleNext}
+                className="w-10 h-10 sm:w-12 sm:h-12 border border-gray-600 rounded-full flex items-center justify-center hover:border-orange-400 focus:border-orange-400 focus:outline-none transition-all duration-300 hover:bg-orange-400/10"
+                whileHover={{ 
+                  scale: 1.1, 
+                  borderColor: "rgb(251 146 60)",
+                  boxShadow: "0 0 20px rgba(251, 146, 60, 0.3)"
+                }}
+                whileTap={{ scale: 0.9 }}
+                aria-label="Next testimonial"
+              >
+                <motion.svg
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  whileHover={{ x: 2 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </motion.svg>
+              </motion.button>
+            </motion.div>
+
             <AnimatePresence mode="wait">
               <motion.div 
                 key={activeTestimonial}

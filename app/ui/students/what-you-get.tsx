@@ -1,7 +1,8 @@
-// Student What You Get Component
-"use client";
-import { Clock, Users, Calendar, MessageSquare, Bell, Gamepad2 } from 'lucide-react'
-import { motion } from 'framer-motion'
+'use client'
+
+import React from 'react';
+import { Clock, Users, Calendar, MessageSquare, Bell, Gamepad2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const WhatYouGet = () => {
   const features = [
@@ -35,13 +36,15 @@ const WhatYouGet = () => {
       title: "Gamified Experience",
       description: "To make your job search more engaging, Purpose Connect adds an element of fun with a gamified experience."
     }
-  ]
+  ];
 
   const containerVariants = {
-    hidden: {},
+    hidden: { opacity: 0 },
     visible: {
+      opacity: 1,
       transition: {
-        staggerChildren: 0.15
+        staggerChildren: 0.2,
+        delayChildren: 0.1
       }
     }
   };
@@ -49,74 +52,58 @@ const WhatYouGet = () => {
   const featureVariants = {
     hidden: { 
       opacity: 0, 
-      y: 50,
-      scale: 0.9
+      y: 30,
+      scale: 0.95
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.8,
         ease: "easeOut"
       }
     }
   };
 
-  const iconVariants = {
-    hover: {
-      scale: 1.1,
-      rotate: 5,
+  const headerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
       transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
-      }
-    }
-  };
-
-  const pulseVariants = {
-    pulse: {
-      scale: [1, 1.05, 1],
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        ease: "easeInOut"
+        duration: 0.8,
+        ease: "easeOut"
       }
     }
   };
 
   return (
-    <section className="bg-gray-50 py-16 lg:py-30 px-4 sm:px-6 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto relative z-10">
-        {/* Animated Header */}
+    <section className="bg-white py-12 sm:py-16 lg:py-20 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <motion.div 
-          className="text-center mb-16 lg:mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          className="text-center mb-12 sm:mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={headerVariants}
         >
-          <motion.div 
-            className="text-orange-500 font-medium text-lg mb-4"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+          <motion.p 
+            className="text-[#069DDE] font-medium text-base sm:text-lg mb-3 sm:mb-4"
+            variants={headerVariants}
           >
             What you get
-          </motion.div>
+          </motion.p>
           <motion.h2 
-            className="text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-6 max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight"
+            variants={headerVariants}
           >
             We're here every step of the way
           </motion.h2>
           <motion.p 
-            className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg sm:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0"
+            variants={headerVariants}
           >
             Purpose Connect provides tailored job matching, expert immigration support, 
             and tools to help you succeed. Stay organized, prepare with AI-driven mock 
@@ -124,121 +111,116 @@ const WhatYouGet = () => {
           </motion.p>
         </motion.div>
 
-        {/* Animated Features Grid */}
+        {/* Features Grid - First 3 features */}
         <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
-          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 mb-12 sm:mb-16"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.05, margin: "-50px" }}
+          variants={containerVariants}
         >
-          {features.map((feature, index) => {
-            const IconComponent = feature.icon
+          {features.slice(0, 3).map((feature, index) => {
+            const IconComponent = feature.icon;
             return (
               <motion.div 
                 key={index} 
-                className="text-center space-y-4 group cursor-pointer"
+                className="text-center px-4 sm:px-0 group"
                 variants={featureVariants}
-                whileHover={{ 
-                  y: -10,
-                  transition: { type: "spring", stiffness: 400 }
-                }}
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3 }}
               >
-                {/* Animated Icon with circular background - Student blue theme */}
                 <motion.div 
-                  className="flex justify-center mb-6"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 200, 
-                    delay: index * 0.1 + 0.3 
-                  }}
+                  className="mb-4 sm:mb-6 flex justify-center"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  <motion.div 
-                    className="relative"
-                    whileHover="hover"
-                  >
-                    {/* Outer light blue circle */}
-                    <motion.div 
-                      className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center relative"
-                      variants={pulseVariants}
-                      animate="pulse"
-                      whileHover={{ scale: 1.1, backgroundColor: "#dbeafe" }}
-                      transition={{ duration: 0.3 }}
+                  <div className="relative">
+                    <div 
+                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center relative z-10"
+                      style={{ backgroundColor: '#069DDE' }}
                     >
-                      {/* Inner blue circle */}
-                      <motion.div 
-                        className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center"
-                        variants={iconVariants}
-                        whileHover={{ backgroundColor: "#3b82f6" }}
-                      >
-                        <motion.div
-                          initial={{ rotate: 0 }}
-                          whileHover={{ rotate: 360 }}
-                          transition={{ duration: 0.6, ease: "easeInOut" }}
-                        >
-                          <IconComponent className="w-6 h-6 text-white" />
-                        </motion.div>
-                      </motion.div>
-
-                      {/* Animated ring effect */}
-                      <motion.div
-                        className="absolute inset-0 rounded-full border-2 border-blue-300 opacity-0"
-                        animate={{ 
-                          scale: [1, 1.3, 1],
-                          opacity: [0, 0.4, 0]
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          delay: index * 0.3
-                        }}
+                      <IconComponent 
+                        size={32} 
+                        color="white" 
+                        strokeWidth={1.5}
+                        className="sm:w-8 sm:h-8 w-7 h-7"
                       />
-                    </motion.div>
-                  </motion.div>
+                    </div>
+                  </div>
                 </motion.div>
-
-                {/* Animated Content */}
-                <motion.div 
-                  className="space-y-3"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
+                <motion.h3 
+                  className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-teal-600 transition-colors duration-300"
+                  variants={featureVariants}
                 >
-                  <motion.h3 
-                    className="text-xl lg:text-2xl font-bold text-gray-900"
-                    whileHover={{ color: "#069DDE" }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {feature.title}
-                  </motion.h3>
-                  <motion.p 
-                    className="text-gray-600 leading-relaxed text-base lg:text-lg"
-                    initial={{ opacity: 0.8 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {feature.description}
-                  </motion.p>
-                </motion.div>
-
-                {/* Hover indicator - blue theme */}
-                <motion.div
-                  className="w-12 h-1 bg-blue-500 mx-auto rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
+                  {feature.title}
+                </motion.h3>
+                <motion.p 
+                  className="text-sm sm:text-base text-gray-600 leading-relaxed"
+                  variants={featureVariants}
+                >
+                  {feature.description}
+                </motion.p>
               </motion.div>
-            )
+            );
+          })}
+        </motion.div>
+
+        {/* Features Grid - Last 3 features */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 lg:gap-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05, margin: "-50px" }}
+          variants={containerVariants}
+        >
+          {features.slice(3, 6).map((feature, index) => {
+            const IconComponent = feature.icon;
+            return (
+              <motion.div 
+                key={index + 3} 
+                className="text-center px-4 sm:px-0 group"
+                variants={featureVariants}
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <motion.div 
+                  className="mb-4 sm:mb-6 flex justify-center"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="relative">
+                    <div 
+                      className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center relative z-10"
+                      style={{ backgroundColor: '#069DDE' }}
+                    >
+                      <IconComponent 
+                        size={32} 
+                        color="white" 
+                        strokeWidth={1.5}
+                        className="sm:w-8 sm:h-8 w-7 h-7"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+                <motion.h3 
+                  className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-teal-600 transition-colors duration-300"
+                  variants={featureVariants}
+                >
+                  {feature.title}
+                </motion.h3>
+                <motion.p 
+                  className="text-sm sm:text-base text-gray-600 leading-relaxed"
+                  variants={featureVariants}
+                >
+                  {feature.description}
+                </motion.p>
+              </motion.div>
+            );
           })}
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default WhatYouGet;

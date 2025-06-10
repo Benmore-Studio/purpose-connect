@@ -95,7 +95,7 @@ export default function OurTeam() {
           transition={{ duration: 0.6 }}
         >
           <motion.p 
-            className="text-teal-600 font-medium mb-4"
+            className="text-[#5DAFA1] font-medium mb-4"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -113,7 +113,7 @@ export default function OurTeam() {
             Our strength comes
           </motion.h2>
           <motion.h2 
-            className="text-4xl sm:text-5xl font-bold text-teal-600"
+            className="text-4xl sm:text-5xl font-bold text-[#5DAFA1]"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

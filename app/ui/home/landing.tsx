@@ -82,7 +82,7 @@ const ServiceWalkthrough = () => {
           sponsorship
         </p>
 
-        <div className="flex flex-col space-y-3 sm:space-y-4 sm:flex-row sm:justify-center sm:items-center sm:space-x-3 md:space-x-4 lg:space-x-6">
+        <div className="flex flex-col space-y-3 sm:space-y-4 lg:space-y-0 sm:flex-row sm:justify-center sm:items-center sm:space-x-3 md:space-x-4 lg:space-x-6">
           <motion.button
             className="w-full sm:w-auto border-2 border-cyan-500 text-cyan-500 hover:bg-cyan-50 focus:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-200 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 rounded-full font-semibold text-sm sm:text-base md:text-lg transition-all duration-300 hover:scale-105 active:scale-95"
             whileHover={{ scale: 1.05 }}

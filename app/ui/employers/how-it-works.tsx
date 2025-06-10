@@ -74,7 +74,7 @@ const HowItWorks = () => {
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight"
             variants={headerVariants}
           >
-            <span className="bg-gradient-to-r from-teal-600 to-teal-500 bg-clip-text text-transparent">
+            <span className="text-black">
               How it works
             </span>
           </motion.h2>

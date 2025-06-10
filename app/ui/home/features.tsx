@@ -2,8 +2,29 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function FeaturesSection() {
+  // Preload images when component mounts
+  useEffect(() => {
+    const imageUrls = [
+      '/features-1.svg',
+      '/feature-2.svg',
+      '/features-3.svg',
+      '/features-4.svg',
+      '/features-5.svg',
+      '/features-6.svg'
+    ];
+
+    imageUrls.forEach((url) => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = url;
+      document.head.appendChild(link);
+    });
+  }, []);
+
   const featureVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
@@ -79,13 +100,6 @@ export default function FeaturesSection() {
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
                 We match you with jobs that fit your skills and visa status—no guesswork, just green lights to work, grow, and shine where you belong.
               </p>
-              <motion.button 
-                className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base"
-                whileHover={{ scale: 1.05, backgroundColor: "rgb(239 246 255)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Learn more
-              </motion.button>
             </motion.div>
             <motion.div 
               className="relative flex items-center justify-center order-1 lg:order-2"
@@ -100,6 +114,7 @@ export default function FeaturesSection() {
                   width={400} 
                   height={400} 
                   className="w-full h-auto"
+                  priority
                 />
               </div>
             </motion.div>
@@ -133,13 +148,6 @@ export default function FeaturesSection() {
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
                 Visas are tricky—we make them easier. Our experts guide you through the maze so you can focus on your dreams, not just documents.
               </p>
-              <motion.button 
-                className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base"
-                whileHover={{ scale: 1.05, backgroundColor: "rgb(239 246 255)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Learn more
-              </motion.button>
             </motion.div>
             <motion.div 
               className="relative flex items-center justify-center order-1"
@@ -154,6 +162,7 @@ export default function FeaturesSection() {
                   width={400} 
                   height={400} 
                   className="w-full h-auto"
+                  priority
                 />
               </div>
             </motion.div>
@@ -187,13 +196,6 @@ export default function FeaturesSection() {
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
                 No missed emails or confusing time zones. We keep interviews simple, smooth, and synced so you can show up ready and relaxed.
               </p>
-              <motion.button 
-                className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base"
-                whileHover={{ scale: 1.05, backgroundColor: "rgb(239 246 255)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Learn more
-              </motion.button>
             </motion.div>
             <motion.div 
               className="relative flex items-center justify-center order-1 lg:order-2"
@@ -208,6 +210,7 @@ export default function FeaturesSection() {
                   width={400} 
                   height={400} 
                   className="w-full h-auto"
+                  priority
                 />
               </div>
             </motion.div>
@@ -241,13 +244,6 @@ export default function FeaturesSection() {
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
                 Deadlines don't have to be scary. Get friendly alerts and easy-to-follow timelines so you stay on track—and stress-free.
               </p>
-              <motion.button 
-                className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base"
-                whileHover={{ scale: 1.05, backgroundColor: "rgb(239 246 255)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Learn more
-              </motion.button>
             </motion.div>
             <motion.div 
               className="relative flex items-center justify-center order-1"
@@ -295,13 +291,6 @@ export default function FeaturesSection() {
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
                 Practice makes power. Our AI coach helps you prep with real questions and helpful feedback to boost your confidence.
               </p>
-              <motion.button 
-                className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base"
-                whileHover={{ scale: 1.05, backgroundColor: "rgb(239 246 255)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Learn more
-              </motion.button>
             </motion.div>
             <motion.div 
               className="relative flex items-center justify-center order-1 lg:order-2"
@@ -349,13 +338,6 @@ export default function FeaturesSection() {
               <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8">
                 Grow your skills, earn shiny badges, and climb the leaderboard. It's career-building with a splash of fun and a dash of friendly competition.
               </p>
-              <motion.button 
-                className="border-2 border-blue-500 text-blue-500 hover:bg-blue-50 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors text-sm sm:text-base"
-                whileHover={{ scale: 1.05, backgroundColor: "rgb(239 246 255)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Learn more
-              </motion.button>
             </motion.div>
             <motion.div 
               className="relative flex items-center justify-center order-1"

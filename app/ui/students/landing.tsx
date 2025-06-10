@@ -1,11 +1,10 @@
-// Student Landing Component
-"use client";
+'use client'
 import React from "react";
+import Image from 'next/image';
 import { Bookmark } from "lucide-react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
-const Landing = () => {
+const StudentLanding = () => {
   const cardVariants = {
     hidden: { opacity: 0, y: 50, scale: 0.9 },
     visible: {
@@ -22,8 +21,7 @@ const Landing = () => {
   };
 
   return (
-    <div className="bg-white flex items-center justify-center px-4 py-30 relative overflow-hidden">
-
+    <div className="bg-gradient-to-br from-blue-50 to-white flex items-center justify-center px-4 py-20 lg:py-30 relative overflow-hidden">
       <div className="max-w-7xl w-full relative z-10">
         {/* Mobile Layout - Single Column */}
         <div className="lg:hidden space-y-8 text-center">
@@ -48,6 +46,7 @@ const Landing = () => {
               </motion.span>
               <br />
               <motion.span
+                className="bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
@@ -73,18 +72,27 @@ const Landing = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
           >
             <motion.button 
-              className="w-full px-6 py-3 border-2 border-blue-500 text-blue-500 rounded-full font-medium hover:bg-blue-50 focus:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
-              whileHover={{ scale: 1.02, backgroundColor: "rgb(239 246 255)" }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Search Jobs
-            </motion.button>
-            <motion.button 
-              className="w-full px-6 py-3 bg-blue-500 text-white rounded-full font-medium hover:bg-blue-600 focus:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
-              whileHover={{ scale: 1.02, backgroundColor: "rgb(37 99 235)" }}
+              className="w-full px-6 py-3 bg-blue-500 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+              whileHover={{ 
+                scale: 1.02, 
+                backgroundColor: "#0369a1",
+                boxShadow: "0 20px 25px -5px rgba(6, 182, 212, 0.25), 0 10px 10px -5px rgba(6, 182, 212, 0.1)"
+              }}
               whileTap={{ scale: 0.98 }}
             >
               Sign up Today
+            </motion.button>
+            <motion.button 
+              className="w-full px-6 py-3 border-2 border-blue-500 text-blue-600 rounded-full font-medium bg-white hover:bg-blue-50 transition-all duration-300"
+              whileHover={{ 
+                scale: 1.02,
+                borderColor: "#0369a1",
+                color: "#0c4a6e",
+                backgroundColor: "#eff6ff"
+              }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Search Jobs
             </motion.button>
           </motion.div>
 
@@ -95,20 +103,23 @@ const Landing = () => {
             transition={{ duration: 0.8, delay: 0.9 }}
           >
             <motion.div 
-              className="relative shadow-lg w-full h-[400px] sm:h-[500px] rounded-tl-[100px] overflow-hidden"
-              whileHover={{ scale: 1.02 }}
+              className="relative shadow-xl w-full h-[400px] sm:h-[500px] rounded-tl-[100px] overflow-hidden"
+              whileHover={{ 
+                scale: 1.02,
+                boxShadow: "0 25px 50px rgba(6, 157, 222, 0.15)"
+              }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Image
                 src="/student-landing-1.jpg"
                 alt="Two women having a professional conversation in a modern office setting"
-                className="object-cover"
                 fill
+                className="object-cover"
                 sizes="100vw"
                 priority
               />
 
-              {/* Animated Overlay Card - Mobile positioned */}
+              {/* Animated Overlay Card */}
               <motion.div 
                 className="absolute bottom-4 left-4 right-4 bg-white rounded-2xl shadow-lg p-4 opacity-95"
                 variants={cardVariants}
@@ -117,7 +128,7 @@ const Landing = () => {
                 transition={{ delay: 1.2 }}
                 whileHover={{ 
                   y: -5,
-                  boxShadow: "0 20px 40px -10px rgba(0,0,0,0.2)"
+                  boxShadow: "0 20px 40px -10px rgba(6, 157, 222, 0.2)"
                 }}
               >
                 <div className="flex items-center justify-between mb-3">
@@ -133,12 +144,12 @@ const Landing = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <motion.div 
-                    className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0"
+                    className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
                     <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-                      <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                      <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
                     </div>
                   </motion.div>
                   <div className="min-w-0 flex-1">
@@ -183,6 +194,7 @@ const Landing = () => {
                 </motion.span>
                 <br />
                 <motion.span
+                  className="bg-gradient-to-r from-[#069DDE] to-blue-500 bg-clip-text text-transparent"
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.7 }}
@@ -208,18 +220,27 @@ const Landing = () => {
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <motion.button 
-                className="px-8 py-3 border-2 border-blue-500 text-blue-500 rounded-full font-medium hover:bg-blue-50 focus:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
-                whileHover={{ scale: 1.05, backgroundColor: "rgb(239 246 255)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Search Jobs
-              </motion.button>
-              <motion.button 
-                className="px-8 py-3 bg-blue-500 text-white rounded-full font-medium hover:bg-blue-600 focus:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200"
-                whileHover={{ scale: 1.05, backgroundColor: "rgb(37 99 235)" }}
-                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-[#069DDE] text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-300"
+                whileHover={{ 
+                  scale: 1.03, 
+                  backgroundColor: "#0369a1",
+                  boxShadow: "0 20px 25px -5px rgba(6, 182, 212, 0.25), 0 10px 10px -5px rgba(6, 182, 212, 0.1)"
+                }}
+                whileTap={{ scale: 0.97 }}
               >
                 Sign up Today
+              </motion.button>
+              <motion.button 
+                className="px-8 py-4 border-2 border-[#069DDE] text-[#069DDE] rounded-full font-medium bg-white hover:bg-blue-50 transition-all duration-300"
+                whileHover={{ 
+                  scale: 1.03,
+                  borderColor: "#069DDE",
+                  color: "#0c4a6e",
+                  backgroundColor: "#eff6ff"
+                }}
+                whileTap={{ scale: 0.97 }}
+              >
+                Search Jobs
               </motion.button>
             </motion.div>
           </motion.div>
@@ -233,7 +254,10 @@ const Landing = () => {
           >
             <motion.div 
               className="relative shadow-2xl w-full h-[550px] xl:h-[650px] rounded-tl-[200px]"
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ 
+                scale: 1.02,
+                boxShadow: "0 25px 50px rgba(6, 157, 222, 0.15)"
+              }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Image
@@ -255,7 +279,7 @@ const Landing = () => {
                 whileHover={{ 
                   y: -5,
                   x: -5,
-                  boxShadow: "0 25px 50px -10px rgba(0,0,0,0.2)",
+                  boxShadow: "0 25px 50px -10px rgba(6, 157, 222, 0.2)",
                   opacity: 1
                 }}
               >
@@ -272,12 +296,12 @@ const Landing = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                   <motion.div 
-                    className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center"
+                    className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
                     <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-                      <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                      <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
                     </div>
                   </motion.div>
                   <div>
@@ -296,4 +320,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default StudentLanding;

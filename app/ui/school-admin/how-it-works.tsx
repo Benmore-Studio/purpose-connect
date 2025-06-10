@@ -62,7 +62,7 @@ const HowItWorks = () => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-green-50 to-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
+    <section className="bg-gradient-to-tl from-green-50 to-white py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <motion.div 
@@ -76,7 +76,7 @@ const HowItWorks = () => {
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight"
             variants={headerVariants}
           >
-            <span className="bg-gradient-to-r from-green-600 to-lime-600 bg-clip-text text-transparent">
+            <span className="text-black">
               How it works
             </span>
           </motion.h2>
@@ -146,7 +146,7 @@ const HowItWorks = () => {
 
                 {/* Subtle Accent Line */}
                 <motion.div
-                  className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-green-400 to-lime-500 rounded-b-lg transition-all duration-300 w-0 group-hover:w-full"
+                  className="absolute bottom-0 left-0 h-1 bg-[#A0C366] transition-all duration-300 w-0 group-hover:w-full"
                 />
               </motion.div>
             );

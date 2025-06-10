@@ -126,7 +126,7 @@ export default function AboutLandingSection() {
           >
             Building Bridges to{" "}
             <motion.span 
-              className="block sm:inline lg:block bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              className="block sm:inline lg:block bg-[#5DAFA1] bg-clip-text text-transparent"
               variants={textVariants}
             >
               Brighter Futures

@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -13,6 +14,14 @@ export default function Header() {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleDropdownMouseEnter = () => {
+    setIsDropdownOpen(true);
+  };
+
+  const handleDropdownMouseLeave = () => {
+    setIsDropdownOpen(false);
   };
 
   // Prevent body scroll when menu is open
@@ -61,14 +70,63 @@ export default function Header() {
               >
                 About us
               </Link>
-              <div className="relative group">
+              
+              {/* Our Products Dropdown */}
+              <div 
+                className="relative group"
+                onMouseEnter={handleDropdownMouseEnter}
+                onMouseLeave={handleDropdownMouseLeave}
+              >
                 <button className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition-colors duration-200 flex items-center">
                   Our Products
-                  <svg className="ml-1 h-4 w-4 transform group-hover:rotate-180 transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+                  <svg 
+                    className={`ml-1 h-4 w-4 transform transition-transform duration-200 ${
+                      isDropdownOpen ? 'rotate-180' : ''
+                    }`} 
+                    fill="currentColor" 
+                    viewBox="0 0 20 20"
+                  >
                     <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </button>
+                
+                {/* Dropdown Menu */}
+                <div className={`absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 transform transition-all duration-200 origin-top ${
+                  isDropdownOpen 
+                    ? 'opacity-100 scale-100 visible' 
+                    : 'opacity-0 scale-95 invisible'
+                }`}>
+                  <Link
+                    href="/students"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    <div className="font-medium">Students</div>
+                    <div className="text-xs text-gray-500 mt-1">Find your dream job</div>
+                  </Link>
+                  <Link
+                    href="/employers"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    <div className="font-medium">Employers</div>
+                    <div className="text-xs text-gray-500 mt-1">Hire top talent</div>
+                  </Link>
+                  <Link
+                    href="/immigration-lawyers"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    <div className="font-medium">Immigration Lawyers</div>
+                    <div className="text-xs text-gray-500 mt-1">Legal support services</div>
+                  </Link>
+                  <Link
+                    href="/school-admin"
+                    className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                  >
+                    <div className="font-medium">School Administration</div>
+                    <div className="text-xs text-gray-500 mt-1">Manage student programs</div>
+                  </Link>
+                </div>
               </div>
+
               <Link
                 href="/faqs"
                 className="text-gray-700 hover:text-blue-600 px-3 py-2 font-medium transition-colors duration-200"

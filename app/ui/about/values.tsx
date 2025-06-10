@@ -120,7 +120,7 @@ export default function OurValues() {
               >
                 {/* Animated Icon */}
                 <motion.div 
-                  className="w-16 h-16 bg-cyan-400 rounded-2xl flex items-center justify-center group-hover:bg-cyan-500 transition-colors duration-300"
+                  className="w-16 h-16 bg-[#5DAFA1] rounded-2xl flex items-center justify-center group-hover:bg-[#699c94] transition-colors duration-300"
                   variants={iconVariants}
                   whileHover="hover"
                 >
