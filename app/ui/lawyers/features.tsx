@@ -131,7 +131,7 @@ export default function LawyerFeatures() {
                   </div>
                 </motion.div>
                 <motion.h3 
-                  className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-yellow-600 transition-colors duration-300"
+                  className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-[#EFD329] transition-colors duration-300"
                   variants={itemVariants}
                 >
                   {feature.title}
@@ -176,7 +176,7 @@ export default function LawyerFeatures() {
               </div>
             </motion.div>
             <motion.h3 
-              className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-yellow-600 transition-colors duration-300"
+              className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 group-hover:text-[#EFD329] transition-colors duration-300"
               variants={itemVariants}
             >
               {features[3].title}
