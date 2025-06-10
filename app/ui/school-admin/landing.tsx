@@ -92,7 +92,7 @@ export default function Landing() {
             >
               <motion.button
                 className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 border-2 border-[#A0C366] text-[#A0C366] font-medium rounded-full hover:bg-green-50 hover:border-[#A0C366] transition-all duration-300 text-base sm:text-lg order-2 sm:order-1"
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 whileHover={{
                   scale: 1.05,
                   boxShadow: "0 10px 25px rgba(34, 197, 94, 0.15)",
@@ -104,7 +104,7 @@ export default function Landing() {
 
               <motion.button
                 className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-[#A0C366] text-white font-medium rounded-full hover:bg-green-600 transition-all duration-300 text-base sm:text-lg order-1 sm:order-2"
-                variants={fadeInUp}
+                // variants={fadeInUp}
                 whileHover={{
                   scale: 1.05,
                   boxShadow: "0 10px 25px rgba(34, 197, 94, 0.25)",

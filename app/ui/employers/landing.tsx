@@ -52,7 +52,7 @@ export default function EmployerLanding() {
 
   // Separate button variants for more control
   const primaryButtonVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 0 },
     visible: {
       opacity: 1,
       y: 0,
@@ -64,7 +64,7 @@ export default function EmployerLanding() {
   };
 
   const secondaryButtonVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 0 },
     visible: {
       opacity: 1,
       y: 0,

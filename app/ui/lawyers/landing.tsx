@@ -96,14 +96,14 @@ export default function Landing() {
           </motion.div>
 
           {/* Buttons */}
-          <motion.div className="space-y-4" variants={containerVariants}>
+          <motion.div className="space-y-4">
             <motion.button
               className="w-full px-8 py-4 border-2 font-medium rounded-full transition-all duration-300 text-lg"
               style={{
                 borderColor: "#C1B666",
                 color: "#C1B666",
               }}
-              variants={fadeInUp}
+              // variants={fadeInUp}
               whileHover={{
                 scale: 1.02,
                 backgroundColor: "#C1B66610",
@@ -119,7 +119,7 @@ export default function Landing() {
               style={{
                 backgroundColor: "#C1B666",
               }}
-              variants={fadeInUp}
+              // variants={fadeInUp}
               whileHover={{
                 scale: 1.02,
                 backgroundColor: "#e6c625",
