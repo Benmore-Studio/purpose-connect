@@ -21,7 +21,7 @@ const StudentLanding = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-white flex items-center justify-center px-4 py-20 lg:py-30 relative overflow-hidden">
+    <div className="bg-gradient-to-br from-blue-50 to-white flex items-center justify-center px-4 py-30 lg:py-40 relative overflow-hidden">
       <div className="max-w-7xl w-full relative z-10">
         {/* Mobile Layout - Single Column */}
         <div className="lg:hidden space-y-8 text-center">

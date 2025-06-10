@@ -139,7 +139,7 @@ export default function PurposeConnectFAQ() {
   const currentSection = faqSections.find(section => section.id === activeTab);
 
   return (
-    <section className="bg-white py-40 min-h-screen">
+    <section className="bg-white py-20 lg:py-40 min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div 
