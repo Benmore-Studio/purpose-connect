@@ -354,7 +354,7 @@ export default function TestimonialsSection() {
                 className="w-10 h-10 sm:w-12 sm:h-12 border border-gray-600 rounded-full flex items-center justify-center focus:outline-none transition-all duration-300 hover:border-[#069DDE]"
                 whileHover={{ 
                   scale: 1.1, 
-                  borderColor: "rgb(249 115 22)",
+                  borderColor: "#069DDE",
                   boxShadow: "0 0 20px rgba(249, 115, 22, 0.3)"
                 }}
                 whileTap={{ scale: 0.9 }}
@@ -382,7 +382,7 @@ export default function TestimonialsSection() {
                 className="w-10 h-10 sm:w-12 sm:h-12 border border-gray-600 rounded-full flex items-center justify-center hover:border-[#069DDE] focus:border-[#069DDE] focus:outline-none transition-all duration-300"
                 whileHover={{ 
                   scale: 1.1, 
-                  borderColor: "rgb(251 146 60)",
+                  borderColor: "#069DDE",
                   boxShadow: "0 0 20px rgba(251, 146, 60, 0.3)"
                 }}
                 whileTap={{ scale: 0.9 }}
